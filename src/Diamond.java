@@ -5,19 +5,51 @@ import java.util.Scanner;
  */
 public class Diamond {
     public static void main(String args[]){
-        int num;
         Scanner in = new Scanner(System.in);
         System.out.println("Enter the number");
-        num = in.nextInt();
+        int num = in.nextInt();
+        singleIsosceles(num);
+        diamondTriangle(num);
+        diamondTriangleName(num);
+    }
 
-        //Isosceles
+    private static void diamondTriangle(int num) {
+        singleIsosceles(num);
         for (int i = 0; i < num; i++) {
-            for (int j = 0; j <i ; j++) {
-                System.out.print("*");
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
             }
-            System.out.print("");
-
+            for (int m = num; m > i; m--) {
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+    }
+    private static void diamondTriangleName(int num) {
+        singleIsosceles(num+1);
+        System.out.println("  N*A*M*E");
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+            for (int m = num; m > i; m--) {
+                System.out.print(" *");
+            }
+            System.out.println();
         }
     }
 
+    private static void singleIsosceles(int num) {
+        for (int i = 0; i < num; i++) {
+            for (int j = num; j > i; j--) {
+                System.out.print(" ");
+            }
+            for (int m = 0; m < i; m++) {
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+    }
 }
+
+
